@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('persona', function (Blueprint $table) {
-            $table->bigIncrements('nPerCodigo');
+        Schema::create('personas', function (Blueprint $table) {
+            $table->id();
+            $table->bigInteger('nPerCodigo')->unique();
             $table->string('cPerApellido',50)->nullable()->unique();
             $table->string('cPerNombre',50)->nullable()->unique();
             $table->string('cPerDireccion',100)->nullable();
             $table->date('cPerAFecNac');
             $table->integer('cPerEdad');
-          
             $table->string('cPerSexo',15)->default('Masculino');
             $table->decimal('cPerSueldo', 6, 2);
             $table->string('cPerRnd',50);
@@ -36,6 +36,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('persona');
+        Schema::dropIfExists('personas');
     }
 };

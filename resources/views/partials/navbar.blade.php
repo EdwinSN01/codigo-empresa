@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-    <a class="navbar-brand" href="{{ route('home') }}">Empresa</a>
+    <a class="navbar-brand" href="{{ route('inicio')}}">Empresa</a>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" 
     aria-expanded="false" aria-label="Toggle navigation">
@@ -12,7 +12,7 @@
         <ul class="navbar-nav">
 
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('home') }}">Home</a>
+                <a class="nav-link" href="{{ route('inicio') }}">Inicio</a>
             </li>
             
             <li class="nav-item">
@@ -23,13 +23,13 @@
             </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('clientes') }}">Clientes</a>
+                    <a class="nav-link" href="{{ route('personas') }}">Personas</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('blog') }}">Blog</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('contacto') }}">Contacto</a>
+                    <a class="nav-link" href="{{ route('contacto') }}">Contactos</a>
                         </li>
                     </ul>
 </div>
