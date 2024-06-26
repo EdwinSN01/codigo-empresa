@@ -63,7 +63,7 @@
             <th>token</th>
                
             <td><input type="hidden" name="remenber_toker" value={{$token}} <br> {{$errors->first('remenber_toker')}}</td>
-                        {{$token}}
+                        {{$token}}    
         </tr>
             
            
