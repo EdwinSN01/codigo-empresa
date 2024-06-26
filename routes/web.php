@@ -44,3 +44,8 @@ Route::get('/clientes/{op?}', function ($op=null) {
 Route::get('/blog/{op?}', function ($op=null) {
     return view('blog',['op'=>$op]);
 }) ->where('op','[0-9]')->name('blog');
+
+//nos retornara los clientes
+Route::get('/contacto', function () {
+    return view('contacto');
+})->name('contacto');
