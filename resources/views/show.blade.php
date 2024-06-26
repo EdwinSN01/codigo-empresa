@@ -36,9 +36,9 @@
 <tr>
     <label>Sexo:</label>
     <td colspan="4">{{ $persona->cPerSexo }}</td><br>
-    @if($persona->cPerSexo=='0')
+    @if($persona->cPerSexo=='M')
        Masculino
-    @elseif($persona->cPerSexo=='1')
+    @elseif($persona->cPerSexo=='F')
        Femenino
     @else
        Otro

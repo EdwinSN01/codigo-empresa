@@ -31,8 +31,8 @@ class PersonasController extends Controller
     } 
 
      public function create(){
-
-        return view('create');
+        $token = Str::random(32);
+        return view('create', compact('token'));
      }
 
      public function store(CreatePersonaRequest $request)

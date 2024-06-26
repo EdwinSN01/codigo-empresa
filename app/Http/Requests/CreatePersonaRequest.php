@@ -11,7 +11,7 @@ class CreatePersonaRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,16 +22,16 @@ class CreatePersonaRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'cPerCodigo' => 'required',
-            'cPerApellido'=>'required',
-            'cPerNombre'=>'required',
-            'cPerDireccion'=>'required',
-            'cPerAFecNac'=>'required',
-            'cPerEdad'=>'required',
-            'cPerSexo'=>'required',
-            'cPerSueldo'=>'required',
-            'cPerEstado'=>'required',
-            'cPerRnd'=>'required',
+            'nPerCodigo' => 'required',
+            'cPerApellido' => 'required|max:255',
+            'cPerNombre' => 'required|max:255',
+            'cPerDireccion' => 'required',
+            'cPerAFecNac' => 'required|date',
+            'cPerEdad' => 'required|numeric',
+            'cPerSexo' => 'required|in:M,F', // Ejemplo de validación de opciones
+            'cPerSueldo' => 'required|numeric',
+            'cPerRnd' => 'required',
+            'cPerEstado' => 'required|in:0,1', // Ejemplo de validación de opciones
            
             //
         ];
@@ -40,7 +40,12 @@ class CreatePersonaRequest extends FormRequest
     public function messages()
     {
         return[
-           
+           'required' => 'El campo :attribute es obligatorio.',
+            'max' => 'El campo :attribute no debe exceder :max caracteres.',
+            'numeric' => 'El campo :attribute debe ser numérico.',
+            'in' => 'El campo :attribute debe ser :values.',
+            'date' => 'El campo :attribute debe ser una fecha válida.',
+
             
         ];
     }

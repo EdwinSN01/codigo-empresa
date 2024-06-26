@@ -24,7 +24,7 @@
         @method('PATCH')
         <tr>
             <th>Código</th>
-            <td><input type="number" name="cPerCodigo" value="{{ old('cPerCodigo', $persona->cPerCodigo) }}"></td>
+            <td><input type="number" name="nPerCodigo" value="{{ old('nPerCodigo', $persona->nPerCodigo) }}"></td>
         </tr>
         <tr>
             <th>Apellido</th>

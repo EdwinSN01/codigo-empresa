@@ -11,36 +11,36 @@
             @csrf
             <tr>
                 <th>Codigo:</th>
-                <td><input type="number" name="nPerCodigo" placeholder="Codigo"><br> {{$errors->first('Codigo')}}</td>
+                <td><input type="number" name="nPerCodigo" placeholder="Codigo"><br> {{$errors->first('nPerCodigo')}}</td>
             </tr>
 
             <tr>
                 <th>Apellido:</th>
-                <td><input type="text" name="cPerApellido" placeholder="Apellido"><br> {{$errors->first('Apellido')}}</td>
+                <td><input type="text" name="cPerApellido" placeholder="Apellido"><br> {{$errors->first('cPerApellido')}}</td>
             </tr>
             <tr>
                 <th>Nombre:</th>
-                <td><input type="text" name="cPerNombre" placeholder="Nombre"><br> {{$errors->first('Nombre')}}</td>
+                <td><input type="text" name="cPerNombre" placeholder="Nombre"><br> {{$errors->first('cPerNombre')}}</td>
             </tr>
             <tr>
                 <th>Direccion:</th>
-                <td><input type="text" name="cPerDireccion" placeholder="Dirección"><br> {{$errors->first('Dirección')}}</td>
+                <td><input type="text" name="cPerDireccion" placeholder="Dirección"><br> {{$errors->first('cPerDireccion')}}</td>
             </tr>
             <tr>
                 <th>Fecha de Nacimiento </th>
-                <td><input type="date" name="cPerAFecNac" placeholder="Fecha de Nacimiento"><br> {{$errors->first('Fecha de Nacimiento')}}</td>
+                <td><input type="date" name="cPerAFecNac" placeholder="Fecha de Nacimiento"><br> {{$errors->first('cPerAFecNac')}}</td>
             </tr>
             <tr>
                 <th>Edad</th>
-                <td><input type="text" name="cPerEdad" placeholder="Edad"><br> {{$errors->first('Edad')}}</td>
+                <td><input type="text" name="cPerEdad" placeholder="Edad"><br> {{$errors->first('cPerEdad')}}</td>
             </tr>
             <tr>
                 <th>Sexo:</th>
-                <td><input type="text" name="cPerSexo" placeholder="Sexo"><br> {{$errors->first('Sexo')}}</td>
+                <td><input type="text" name="cPerSexo" placeholder="Sexo"><br> {{$errors->first('cPerSexo')}}</td>
             </tr>
             <tr>
                 <th>Sueldo:</th>
-                <td><input type="number" name="cPerSueldo" placeholder="Sueldo"><br> {{$errors->first('Sueldo')}}</td>
+                <td><input type="number" name="cPerSueldo" placeholder="Sueldo"><br> {{$errors->first('cPerSueldo')}}</td>
             </tr>
             <tr>
                 <th>Rnd:</th>
@@ -60,7 +60,7 @@
 
            <tr>
             <th>remenber_toke</th>
-                <td><input type="hidden" name="remenber_toker"><br> {{$errors->first('remenber_toker')}}</td>
+                <td><input type="hidden" name="remenber_toker" value={{$token}} <br> {{$errors->first('remenber_toker')}}</td>
             </tr>
             
            

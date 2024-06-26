@@ -32,9 +32,9 @@
                         <td>{{ $persona->cPerDireccion }}</td>
                         <td>
 
-                            @if ($persona->cPerSexo == '0')
+                            @if ($persona->cPerSexo == 'M')
                                 Masculino
-                            @elseif ($persona->cPerSexo == '1')
+                            @elseif ($persona->cPerSexo == 'F')
                                 Femenino
                             @else
                                 Otro
