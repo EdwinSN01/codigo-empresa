@@ -59,9 +59,12 @@
             </tr>
 
            <tr>
-            <th>remenber_toke</th>
-                <td><input type="hidden" name="remenber_toker" value={{$token}} <br> {{$errors->first('remenber_toker')}}</td>
-            </tr>
+
+            <th>token</th>
+               
+            <td><input type="hidden" name="remenber_toker" value={{$token}} <br> {{$errors->first('remenber_toker')}}</td>
+                        {{$token}}
+        </tr>
             
            
             <tr>
