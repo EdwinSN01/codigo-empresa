@@ -29,9 +29,9 @@
     <table class="table">
         <thead class="table table-bordered">
             <tr>
-                <th scope="col" class="{{ request('home') ? 'activo' : ''}}"><a href="/"><Home</a></th>
+                <th scope="col" class="{{ request('inicio') ? 'activo' : ''}}"><a href="/"><Inicio</a></th>
                 <th scope="col" class="{{ request('servicios') ? 'activo' : ''}}"><a href="/"><Servicios</a></th>
                 <th scope="col" class="{{ request('proyectos') ? 'activo' : ''}}"><a href="/"><Proyectos</a></th>
-                <th scope="col" class="{{ request('clientes') ? 'activo' : ''}}"><a href="/"><Clientes</a></th>
+                <th scope="col" class="{{ request('personas') ? 'activo' : ''}}"><a href="/"><Personas</a></th>
                 <th scope="col" class="{{ request('blog') ? 'activo' : ''}}"><a href="/"><Blog</a></th>
                 <th scope="col" class="{{ request('contactos') ? 'activo' : ''}}"><a href="/"><Contactos</a></th>
