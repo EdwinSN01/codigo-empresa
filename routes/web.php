@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\ContactosController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PersonasController; 
+
 
 //retour pantalla de inicio
 Route::get('/', function () {
@@ -46,6 +48,9 @@ Route::get('/blog/{op?}', function ($op=null) {
 }) ->where('op','[0-9]')->name('blog');
 
 //nos retornara los clientes
-Route::get('/contacto', function () {
-    return view('contacto');
-})->name('contacto');
+//Route::get('/servicios/{id}', [ServiciosController::class, 'show'])->name('servicios.show');
+Route::view('contactos','contactos')->name('contactos');
+//Route::get('/contactos', [ContactosController::class, 'index'])->name('contactos.index');
+//Route::get('/contactos/crear', [ContactosController::class, 'create'])->name('contactos.create');
+//Route::get('/contactos/{id}', [ContactosController::class, 'show'])->name('contactos.show');
+Route::post('/contactos', [ContactosController::class, 'store'])->name('contactos.store');

@@ -29,7 +29,7 @@
                     <a class="nav-link" href="{{ route('blog') }}">Blog</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('contacto') }}">Contactos</a>
+                    <a class="nav-link" href="{{ route('contactos') }}">Contactos</a>
                         </li>
                     </ul>
 </div>
