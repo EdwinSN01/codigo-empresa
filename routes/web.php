@@ -2,8 +2,12 @@
 
 use App\Http\Controllers\ContactosController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PersonasController; 
-
+use App\Http\Controllers\PersonasController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\HomeController;
+use Illuminate\Auth\Events\Logout;
+use App\Http\Controllers\LogoutController;
 
 //retour pantalla de inicio
 Route::get('/', function () {
@@ -54,3 +58,12 @@ Route::view('contactos','contactos')->name('contactos');
 //Route::get('/contactos/crear', [ContactosController::class, 'create'])->name('contactos.create');
 //Route::get('/contactos/{id}', [ContactosController::class, 'show'])->name('contactos.show');
 Route::post('/contactos', [ContactosController::class, 'store'])->name('contactos.store');
+Route::get('/register',[RegisterController::class,'show']);
+Route::post('/register',[RegisterController::class,'register']);
+
+Route::get('/login',[LoginController::class,'show']);
+Route::post('/login',[LoginController::class,'login']);
+
+Route::get('/home',[HomeController::class,'index']);
+
+Route::get('/logout',[LogoutController::class,'logout']);
