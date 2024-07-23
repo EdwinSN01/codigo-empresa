@@ -8,12 +8,10 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Auth\Events\Logout;
 use App\Http\Controllers\LogoutController;
+use Illuminate\Support\Facades\Auth;
 
 //retour pantalla de inicio
-Route::get('/', function () {
-    return view('inicio');
-})->name('inicio');
-
+Route::view('/','home')->name('home');
 //op = opcional aqui se valida tanto
 //para escribir con mayuscula o miniscula
 //nos retornara los servicios
@@ -61,9 +59,6 @@ Route::post('/contactos', [ContactosController::class, 'store'])->name('contacto
 Route::get('/register',[RegisterController::class,'show']);
 Route::post('/register',[RegisterController::class,'register']);
 
-Route::get('/login',[LoginController::class,'show']);
-Route::post('/login',[LoginController::class,'login']);
+Auth::routes();
 
-Route::get('/home',[HomeController::class,'index']);
-
-Route::get('/logout',[LogoutController::class,'logout']);
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

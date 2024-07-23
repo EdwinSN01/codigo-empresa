@@ -1,4 +1,4 @@
-<!-- resources/views/layouts/partials/footer.blade.php -->
+
 <footer class="footer bg-light py-3">
 
     <div class="container">

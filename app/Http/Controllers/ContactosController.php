@@ -30,3 +30,4 @@ class ContactosController extends Controller
         return 'Mensaje enviado correctamente';
     }
 }
+
