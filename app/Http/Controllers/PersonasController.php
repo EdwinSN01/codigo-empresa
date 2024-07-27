@@ -7,6 +7,8 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\CreatePersonaRequest;
+use Illuminate\Support\Facades\Storage;
+
 class PersonasController extends Controller
 {
     /**
@@ -37,6 +39,9 @@ class PersonasController extends Controller
 
      public function store(CreatePersonaRequest $request)
      {
+        $persona =new Persona($request->validated());
+        $persona-> image = $request->file('image')->store('images');
+          $persona->save();
          // Validación de datos (puedes personalizar esto según tus necesidades)
          date_default_timezone_set('America/Lima');
 
@@ -88,12 +93,17 @@ public function edit(Persona $id)
         $persona->remenber_toker = $request->input('remenber_toker');
         // Actualiza más campos según sea necesario
         $persona->save();
-
-
+        if($request->hasFile('image')){//si enviamos una imagen
+            Storage::delete($persona->image);//le pasamos la ubicacion de la imagen
+            $persona->fill( $request->validated());//rellena todos los datos sin guardarlos
+            $persona->image = $request->file('image')->store('images');//le asignamos la imagen que sube
+            $persona->save();
+        }
 
         return redirect()->route('personas')->with('success', 'Persona creada exitosamente.');
     }
     public function destroy(Persona $persona) {
+        Storage::delete($persona->image);//le pasamos la ubicacion de la imagen 
         $persona->delete();
         return redirect()->route('personas');
 

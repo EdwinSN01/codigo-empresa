@@ -4,6 +4,8 @@
 
 @section('content')
 <tr>
+    <td><img src="/storage/{{ $persona->image }}" alt="{{ $persona->titulo }}" width="100"
+        height="50"></td>
     <label>codigo:</label>
     <td colspan="4">{{ $persona->nPerCodigo }}<br>
         <a href="{{ route('personas.edit',$persona) }}">Editar Persona</a>
@@ -62,4 +64,4 @@
     @endif
 </tr>
 
-@endsection
+@endsection 

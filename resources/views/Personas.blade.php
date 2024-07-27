@@ -60,13 +60,19 @@
                                 <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
                             </form>
                         </td>
+                         
                     </tr>
                     </tr>
+                    <td>
+
                 @endforeach
             </tbody>
         </table>
     @endif
-
+    @if ($persona->image)
+    <img src="/storage/{{ $persona->image }}" alt="{{ $persona->titulo }}"
+    width="50" height="50">
+    @endif
     @if ($personas->isNotEmpty())
         <div class="pagination-wrapper">
             {{ $personas->links('vendor.pagination.bootstrap-4') }}

@@ -32,6 +32,7 @@ class CreatePersonaRequest extends FormRequest
             'cPerSueldo' => 'required|numeric',
             'cPerRnd' => 'required',
             'cPerEstado' => 'required|in:0,1', // Ejemplo de validación de opciones
+            'image' => [ $this->route('persona') ? 'nullable' : 'required', 'mimes:jpeg,png'] //restringe solo a jpeg y png
            
             //
         ];
@@ -45,6 +46,7 @@ class CreatePersonaRequest extends FormRequest
             'numeric' => 'El campo :attribute debe ser numérico.',
             'in' => 'El campo :attribute debe ser :values.',
             'date' => 'El campo :attribute debe ser una fecha válida.',
+            'image' => 'Debes seleccionar una image'
 
             
         ];

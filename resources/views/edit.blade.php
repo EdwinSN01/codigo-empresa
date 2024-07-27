@@ -5,8 +5,10 @@
 @section('content')
 <table cellpadding="3" cellspacing="5">
     <tr>
-        
-        <th colspan="2">Editar Persona</th>
+        @auth
+        <img src="/storage/{{ $persona->image }}" alt="{{ $persona->titulo}}" width="300" height="100">
+        <th colspan="2">Editar Persona</th>  
+        @endauth
     </tr>
     @if($errors->any())
         <tr>
@@ -19,7 +21,7 @@
             </td>
         </tr>
     @endif
-    <form action="{{ route('personas.update', $persona) }}" method="POST">
+    <form action="{{ route('personas.update', $persona) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PATCH')
         <tr>

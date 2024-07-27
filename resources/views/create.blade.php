@@ -7,7 +7,7 @@
         
         <th colspan="4">Crear nuevo Persona</th>
         </tr>
-        <form action="{{ route('personas.store') }}" method="post">
+        <form action="{{ route('personas.store') }}" method="post" enctype="multipart/form-data">
             @csrf
             <tr>
                 <th>Codigo:</th>
@@ -69,6 +69,7 @@
            
             <tr>
                 <td colspan="2" align="center"><button>Guardar</button></td>
+                @include('partials.form', ['btnText' => 'Gurdar'])
             </tr>
         </form>
     </table>
