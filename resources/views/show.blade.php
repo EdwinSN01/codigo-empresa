@@ -4,7 +4,7 @@
 
 @section('content')
 <tr>
-    <td><img src="/storage/{{ $persona->image }}" alt="{{ $persona->titulo }}" width="100"
+    <td><img src="/storage/{{ $persona->image }}" alt="{{ $persona->cPerNombre }}" width="100"
         height="50"></td>
     <label>codigo:</label>
     <td colspan="4">{{ $persona->nPerCodigo }}<br>
@@ -13,10 +13,10 @@
 
     </td>
     <td colspan="2">
-        <form action="{{ route('personas.destroy,$personas') }}" method="POST">
+        <form action="{{ route('personas.destroy, $personas') }}" method="POST">
         @csrf @method('DELETE')
-        <button>Eliminar</button>
         </form>
+        <button>Eliminar</button>
     </td>
 </tr>
 <tr>

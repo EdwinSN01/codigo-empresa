@@ -92,7 +92,7 @@ public function edit(Persona $id)
         $persona->cPerEstado = $request->input('cPerEstado');
         $persona->remenber_toker = $request->input('remenber_toker');
         // Actualiza más campos según sea necesario
-        $persona->save();
+        // $persona->save();
         if($request->hasFile('image')){//si enviamos una imagen
             Storage::delete($persona->image);//le pasamos la ubicacion de la imagen
             $persona->fill( $request->validated());//rellena todos los datos sin guardarlos
