@@ -7,7 +7,10 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\CreatePersonaRequest;
+use Illuminate\Contracts\Cache\Store;
 use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
+use App\Events\PersonaSaved;
 
 class PersonasController extends Controller
 {
@@ -42,6 +45,9 @@ class PersonasController extends Controller
         $persona =new Persona($request->validated());
         $persona-> image = $request->file('image')->store('images');
           $persona->save();
+          $image = Image::make(storage::get($persona->image));
+          Storage::put($persona->image, (string) $image);
+          PersonaSaved::dispatch($persona);
          // Validación de datos (puedes personalizar esto según tus necesidades)
          date_default_timezone_set('America/Lima');
 
@@ -99,6 +105,13 @@ public function edit(Persona $id)
             $persona->image = $request->file('image')->store('images');//le asignamos la imagen que sube
             $persona->save();
         }
+        $image = Image::make(storage::get($persona->image))
+        ->widen(600)//redimenciona la imagen a 600 px
+        ->limitColors(255)//limitamos el color a 255
+        ->encode();//volvemos a codificar la nueva imagen
+        //sobreescribiremos la misma imagen con la nueva imagen redimensionada
+        Storage::put($persona->image, (string) $image);
+        PersonaSaved::dispatch($persona);
 
         return redirect()->route('personas')->with('success', 'Persona creada exitosamente.');
     }
