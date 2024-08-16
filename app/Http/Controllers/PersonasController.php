@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Category;
 use App\Models\Persona;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -37,7 +37,9 @@ class PersonasController extends Controller
 
      public function create(){
         $token = Str::random(32);
+        'categories'=> Category::pluck('name', 'id'),
         return view('create', compact('token'));
+
      }
 
      public function store(CreatePersonaRequest $request)
@@ -77,6 +79,7 @@ public function edit(Persona $id)
 
             return view('edit',[
                 'persona'=> $id]);
+                'categories'=> Category::pluck('name', 'id')
 
 
     }

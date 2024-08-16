@@ -31,6 +31,7 @@ class CreatePersonaRequest extends FormRequest
             'cPerSexo' => 'required|in:M,F', // Ejemplo de validación de opciones
             'cPerSueldo' => 'required|numeric',
             'cPerRnd' => 'required',
+            'category_id'=> [ 'required', 'exists:categories,id'],
             'cPerEstado' => 'required|in:0,1', // Ejemplo de validación de opciones
             'image' => [ $this->route('persona') ? 'nullable' : 'required', 'mimes:jpeg,png'] //restringe solo a jpeg y png
            
@@ -44,6 +45,7 @@ class CreatePersonaRequest extends FormRequest
            'required' => 'El campo :attribute es obligatorio.',
             'max' => 'El campo :attribute no debe exceder :max caracteres.',
             'numeric' => 'El campo :attribute debe ser numérico.',
+            'category_id.required' => 'seleccione una categoria para el servicio',
             'in' => 'El campo :attribute debe ser :values.',
             'date' => 'El campo :attribute debe ser una fecha válida.',
             'image' => 'Debes seleccionar una image'
